@@ -38,6 +38,9 @@ import { Router } from '@angular/router';
 
 import { User } from 'src/app/models/User';
 import { UpskillService } from 'src/app/services/upskill.service';
+import { Md5 } from 'ts-md5';
+
+
 
 @Component({
   selector: 'app-sign-up',
@@ -47,6 +50,8 @@ import { UpskillService } from 'src/app/services/upskill.service';
 export class SignUpComponent implements OnInit {
 
   client:User=new User(0,0,"","","","");
+  md5 = new Md5();
+
 
   constructor(private upSkillservice:UpskillService,private router:Router) { }
 
@@ -54,9 +59,14 @@ export class SignUpComponent implements OnInit {
 
   }
 
+
+
   addUser(){
     var response:any= null;
     console.log("singup called");
+    this.md5.appendStr(this.client.password)
+    this.client.password=this.md5.end() as unknown as string;
+    console.log(this.client.password);
     this.upSkillservice.addUser(this.client).subscribe(res=>{
       console.log(res); 
       response = res;

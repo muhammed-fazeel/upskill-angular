@@ -3,6 +3,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { User } from 'src/app/models/User';
 import { CartService } from 'src/app/services/cart.service';
+import { Md5 } from 'ts-md5';
 
 
 @Component({
@@ -19,8 +20,13 @@ export class LoginComponent implements OnInit {
   roleId=new FormControl();
   email=new FormControl();
   // pictureUrl=new FormControl();
+  //to convert to hash
+  md5 = new Md5();
+
   
   constructor(private authService: AuthenticationService) {
+
+
 
     this.formGrp = new FormGroup({
       userName:this.userName,
@@ -35,6 +41,10 @@ export class LoginComponent implements OnInit {
   }
 
   loginSubmit(user:User) { 
+    this.md5.appendStr(user.password);
+    user.password=this.md5.end() as unknown as string;
+
+
     this.authService.authenticateUser(user); 
     // location.reload();
         

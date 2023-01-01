@@ -20,7 +20,7 @@ export class AddVideoComponent implements OnInit {
   }
 
   addVideo(){
-    this.upskillService.addVideoToCourse(this.video).subscribe(res=>{this.router.navigate(["/profile"]);});
+    this.upskillService.addVideoToCourse(this.video).subscribe(res=>{this.router.navigate(["/course-page/"+this.video.courseId]);});
   }
 
 }

@@ -95,6 +95,13 @@ export class CoursePageComponent implements OnInit {
     this.upskillservice.addReview(this.review).subscribe(res=>{this.router.navigate(["/course-page"]);location.reload()})
   }
 
+  deleteVideo(videoLinkId:number|undefined){
+
+    if(prompt("the video will be deleted, types 'yes' for confirmation")){
+          this.upskillservice.deleteVideo(videoLinkId as unknown as number).subscribe(res=>{console.log(res);location.reload()});
+    }
+  }
+
   make_stars(review:Review){
     for (let index = 0; index < review.rating; index++) {
       this.rating_arr.push(index);

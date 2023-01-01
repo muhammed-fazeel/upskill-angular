@@ -36,6 +36,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { CardModule } from 'primeng/card';
 import { UploadedCoursesComponent } from './components/uploaded-courses/uploaded-courses.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 const routes: Routes=[
@@ -98,6 +99,11 @@ const routes: Routes=[
     component:MentorHomeComponent,
     canActivate:[RouteGuard,RouteGuard2]
   }
+  ,{
+    path:"dashboard",
+    component:DashboardComponent,
+    canActivate:[RouteGuard,RouteGuard2]
+  }
 
 ]
 @NgModule({
@@ -128,6 +134,7 @@ const routes: Routes=[
     EnrolledCoursesComponent,
     UploadedCoursesComponent,
     TestimonialsComponent,
+    DashboardComponent
   ],
 
   imports: [

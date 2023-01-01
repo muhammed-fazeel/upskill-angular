@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
   loginSubmit(user:User) { 
     this.md5.appendStr(user.password);
     user.password=this.md5.end() as unknown as string;
+    console.log(user.password);
 
 
     this.authService.authenticateUser(user); 

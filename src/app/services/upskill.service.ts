@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http'
 import { Category } from '../models/Category';
 import { Observable } from 'rxjs/internal/Observable';
 import { Course } from '../models/Course';
-import { map } from 'rxjs';
+import { map, ObservedValuesFromArray } from 'rxjs';
 import { User } from '../models/User';
 import { VideoLinks } from '../models/VideoLinks';
 import { Review } from '../models/Review';
@@ -77,6 +77,14 @@ export class UpskillService {
 
   addEnrolledCourse(enrolledCourse:EnrolledCourses):Observable<EnrolledCourses>{
     return this.http.post<EnrolledCourses>(this.baseUrl+"AddEnrolledCourse",enrolledCourse)
+  }
+
+  deleteCourse(courseId:number):Observable<boolean>{
+    return this.http.delete<boolean>(this.baseUrl+"delete-course/"+courseId)
+  }
+
+  deleteVideo(videoLinkId:number):Observable<boolean>{
+    return this.http.delete<boolean>(this.baseUrl+"DeleteVideo/"+videoLinkId);
   }
 
   //calls for enrolledCourses

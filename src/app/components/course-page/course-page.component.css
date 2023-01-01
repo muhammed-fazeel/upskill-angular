@@ -137,5 +137,15 @@ padding: 3rem;
 .rating-div {
   display: inline-block;
 }
+
+#deleteButton{
+  background-color: transparent;
+  border: 0;
+  color: blue;
+}
+
+#deleteButton:hover{
+  color: red;
+}
   
 /* rating end */

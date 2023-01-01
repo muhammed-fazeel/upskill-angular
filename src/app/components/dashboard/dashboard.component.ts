@@ -60,7 +60,9 @@ export class DashboardComponent implements OnInit {
 
   delete(courseId:number|undefined){
     console.log("dleete called");
+    if(prompt("Are you sure you want to delete this course? Type 'yes' to confirm")){
     this.upSkillService.deleteCourse(courseId as unknown as number).subscribe(res=>{console.log("dlete")});
+  }
   }
 
 

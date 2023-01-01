@@ -73,7 +73,18 @@
 
                 <div *ngFor="let v of videolinks">
                     <a (click)="showVideo(v)" style="cursor: pointer;">
-                        <li class="list-group-item">{{v.title}} <button id="deleteButton" (click)="deleteVideo(v.videoLinksId)" style="z-index: 9; "><i class="fa fa-close"></i></button></li>
+
+
+                        <li class="list-group-item">{{v.title}}
+                            <div *ngIf="roleId">
+                             <button id="deleteButton" (click)="deleteVideo(v.videoLinksId)" style="z-index: 9; ">
+                                <i class="fa fa-close">
+
+                                </i>
+                            </button>
+                        </div>
+
+                        </li>
                     </a> 
                 </div>
             </ol>

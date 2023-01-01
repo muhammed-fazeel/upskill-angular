@@ -17,10 +17,8 @@
 
 
 
-
-
 .row{
-    /* padding-top: rem; */
+    margin-top: 1rem;
 }
 .card{
     /* height: 50%; */
@@ -28,6 +26,7 @@
     /* padding-left: 3rem; */
     border: none;
     text-align: center;
+
 }
 .col{
     padding: 2.5rem;

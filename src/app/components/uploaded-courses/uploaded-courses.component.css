@@ -6,4 +6,6 @@
     color: black;
 }
 
-.card{}
+.card{
+  margin: 1rem;
+}

@@ -73,10 +73,7 @@ export class CoursePageComponent implements OnInit {
         }
 
         }
-
-
-
-      })
+  })
 
     })
 

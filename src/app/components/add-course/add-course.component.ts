@@ -24,7 +24,7 @@ export class AddCourseComponent implements OnInit {
 
   addCourse(){
     this.course.author=this.author;
-    this.upSkillService.addCourse(this.course).subscribe(res=>{this.router.navigate(['dashboard'])})
+    this.upSkillService.addCourse(this.course).subscribe(res=>{location.reload();})
 
 
   }
